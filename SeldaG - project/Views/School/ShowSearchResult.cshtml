@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SeldaG___project.Models.School>
+
+@{
+    ViewData["Title"] = "SearchSchool";
+}
+
+<h1>Search</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="School" asp-action="ShowSearchResult">
+
+            <div class="form-group">
+                <label for="SearchPhrase" class="control-label"></label>
+                <input type="text" name="SearchPhrase" class="form-control" placeholder="Search School" />
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+    <br /><br />
+
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        School Names
+                    </th>
+                    <th>
+                        Details
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var schools in Model)
+                {
+                    <tr>
+                        <td width="30%">@schools.Name</td>
+                        <td width="50%">@schools.Details</td>
+                        <td class="text-center">
+                            <div class="w-75 btn-group" role="group">
+
+                                <a asp-controller="School" asp-route-Id="@schools.Id" asp-action="Edit" class="btn btn-primary mx-2">
+                                    <i class="fas fa-pen-square"></i>
+                                </a>
+                                <a asp-controller="School" asp-route-Id="@schools.Id" asp-action="Delete" class="btn btn-danger mx-2">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="body" style="padding-bottom">
+            <p class="text-danger"> No school with this name!</p>
+
+        </div>
+       
+    }
+
+
+
+
+</div>
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
