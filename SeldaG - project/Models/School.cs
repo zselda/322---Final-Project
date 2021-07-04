@@ -16,8 +16,8 @@ namespace SeldaG___project.Models
         [MaxLength(100, ErrorMessage = "Name should be less than 100 characters.")]
         public string Name { get; set; }
         [Required]
-        [MinLength(3, ErrorMessage = "Name should be at least 3 characters.")]
-        [MaxLength(100, ErrorMessage = "Name should be less than 100 characters.")]
+        [MinLength(3, ErrorMessage = "Details should be at least 3 characters.")]
+        [MaxLength(100, ErrorMessage = "Details should be less than 100 characters.")]
         public string Details { get; set; }
 
     }

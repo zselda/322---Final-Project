@@ -5,11 +5,13 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  text-decoration:solid;
+  color:khaki;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: khaki;
 }
 
 .btn-primary {
